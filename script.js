@@ -6,7 +6,9 @@ var isDate = function (input) {
   
   // If input is a string, try to parse it into a date
   if (typeof input === 'string') {
-    const parsedDate = Date.parse(input);
+    // Trim any whitespace and parse the date
+    const trimmedInput = input.trim();
+    const parsedDate = Date.parse(trimmedInput);
     return !isNaN(parsedDate); // Check if parsed date is valid
   }
   
