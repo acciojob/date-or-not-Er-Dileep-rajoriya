@@ -1,18 +1,18 @@
 var isDate = function (input) {
-  // Check if input is a valid Date object
+  // Handle case where input is a Date object
   if (input instanceof Date) {
-    return !isNaN(input.getTime()); // Check if the date is valid
+    return !isNaN(input.getTime()); // Valid date check
   }
   
-  // If input is a string, try to parse it into a date
+  // Handle case where input is a string
   if (typeof input === 'string') {
-    // Trim any whitespace and parse the date
-    const trimmedInput = input.trim();
+    const trimmedInput = input.trim(); // Trim whitespace
+    // Check if the trimmed input can be parsed into a valid date
     const parsedDate = Date.parse(trimmedInput);
     return !isNaN(parsedDate); // Check if parsed date is valid
   }
   
-  // If input is a number, check if it's a valid timestamp
+  // Handle case where input is a number
   if (typeof input === 'number') {
     return !isNaN(new Date(input).getTime()); // Validate timestamp
   }
